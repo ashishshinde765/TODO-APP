@@ -1,0 +1,29 @@
+@import '../../../main-style.scss';
+.layout.box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    
+    .page-content{
+        flex-grow: 1;
+        overflow-x: scroll;
+    }
+}
+
+.top-bar{
+    top: 0;
+    width: 100%;
+    height: 68px;
+    background: linear-gradient(to right, $pink, $blue);
+    box-shadow:  0 0 10px 0 rgba(#111, 0.15);
+    display: flex;
+    flex-shrink: 0; // to prevent the top bar from being squashed
+    //Center the child element
+    justify-content: center;
+    align-items: center;
+    h1{
+        color: #fff;
+        font-size: 24px;
+    }
+}

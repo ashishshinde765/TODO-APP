@@ -1,0 +1,23 @@
+<div class="main-container">
+    <div class="search-bar-container">
+        <div class="field">
+            <p class="control has-icons-left">
+                <input #filterInput class="input" type="text" (keyup)="filter($any($event.target).value)" placeholder="Filter"> 
+                <span class="icon is-small is-left">
+                    <i class="fas fa-search"></i>
+                </span>
+            </p>
+        </div>
+    </div>
+    <!-- (change)="filter($event.target.value)"  -->
+
+    <div class="notes-list" [@listAnim]>
+        <app-note-card *ngFor="let note of filteredNotes;" link="generateNoteURL(note)" 
+        [@itemAnime]
+        (delete)="deleteNote(note)"
+        [title]="note.title" [body]="note.body">
+        </app-note-card>
+    </div>
+    <router-outlet></router-outlet>
+    <button class="button floating-add-button is-primary" routerLink="/new">+ Add</button>
+</div>
